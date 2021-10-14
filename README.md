@@ -35,7 +35,7 @@ Thus the Server-Side Adapter prevents visitors from skipping the queue by disabl
 
 These instructions assume you already have a Django installation.  If you are setting up a Django webapp for the first time, follow the turtorial at https://docs.djangoproject.com/en/3.2/intro/tutorial01/ 
 
-If you are not using Django, you can still use the example code in views.py from this distribution - but you will also need to implement your own QueueFairService class to encapsulate your alternative HTTP framework.  It's only four basic methods to write.
+If you are not using Django, you can still use the example code in `views.py` from this distribution - but you will also need to implement your own QueueFairService class to encapsulate your alternative HTTP framework.  It's only four basic methods to write.
 
 
 **1.** Copy the queue_fair_adapter folder from this distribution into the top level folder of your framework.  
@@ -56,7 +56,7 @@ Note: The settings folder can go anywhere, but for maximum security this should 
     sudo apt-get install ntp
 ```
 
-**4.** Copy the code from the example views.py file in this distribution into your Django app's views.py
+**4.** Copy the code from the example `views.py` file in this distribution into your Django app's views.py
 
 
 **5.** Enter your account name and secret where indicated, and (optionally) the folder location you created in step 2
@@ -70,11 +70,11 @@ Note: The settings folder can go anywhere, but for maximum security this should 
 
 That's it your done!
 
-In your views.py methods you should always ensure that the checkQueueFair() function is the *first* thing that happens within your methods.  This will ensure that the adapter is the first thing that runs when a vistor accesses any page, which is necessary both to protect your server from load from lots of visitors and also so that the adapter can set the necessary cookies.  You can then use the Activation Rules in the Portal to set which pages on your site may trigger a queue.
+In your `views.py` functions you should always ensure that `checkQueueFair()` is the *first* thing that happens within your functions.  This will ensure that the Adapter is the first thing that runs when a vistor accesses any page, which is necessary both to protect your server from load from lots of visitors and also so that the adapter can set the necessary cookies.  You can then use the Activation Rules in the Portal to set which pages on your site may trigger a queue.
 
-In the case where the Adapter sends the request elsewhere (for example to show the user a queue page), the `checkQueueFair()` method will return False and the rest of the page should not be run.
+In the case where the Adapter sends the request elsewhere (for example to show the user a queue page), `checkQueueFair()` will return False and the rest of the page should not be run.
 
-If it returns True, you MUST use the same HttpResponse object that you passed to checkQueueFair(), as otherwise people's Passed Cookies will not be set and they will be sent back to the queue again and again.
+If it returns True, you MUST use the same HttpResponse object that you passed to checkQueueFair() for the rest of your function, as otherwise people's Passed Cookies will not be set and they will be sent to the queue repeatedly.
 
 If your web server is sitting behind a proxy, CDN or load balancer, you may need to edit the property sets in checkQueueFair() to use values from forwarded headers instead.  If you need help with this, contact Queue-Fair support.
 
