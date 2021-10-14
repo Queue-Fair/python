@@ -33,11 +33,9 @@ If a visitor requests a page that DOES match any queue's Activation Rules, the A
 
 Thus the Server-Side Adapter prevents visitors from skipping the queue by disabling the Client-Side JavaScript Adapter, and also reduces load on your web server when things get busy.
 
-These instructions assume you already have a Django installation.  
+These instructions assume you already have a Django installation.  If you are setting up a Django webapp for the first time, follow the turtorial at https://docs.djangoproject.com/en/3.2/intro/tutorial01/ 
 
 If you are not using Django, you can still use the example code in views.py from this distribution - but you will also need to implement your own QueueFairService class to encapsulate your alternative HTTP framework.  It's only four basic methods to write.
-
-If you are setting up a Django webapp for the first time, follow the turtorial at https://docs.djangoproject.com/en/3.2/intro/tutorial01/ 
 
 
 **1.** Copy the queue_fair_adapter folder from this distribution into the top level folder of your framework.  
