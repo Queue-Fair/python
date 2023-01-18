@@ -13,7 +13,7 @@ class QueueFairConfig:
 
     # Time limit for Passed Strings to be considered valid,
     # before and after the current time
-    QUERY_TIME_LIMIT_SECONDS = 30
+    QUERY_TIME_LIMIT_SECONDS = 300
 
     # Valid values are True, False, or an "IP_address".
     DEBUG = False
