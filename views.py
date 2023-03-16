@@ -23,7 +23,8 @@ def checkQueueFair(request, response):
         # Enables debug level logging. Comment out for production.
         QueueFairConfig.DEBUG = True
 
-        # Set these to the values from the Queue-Fair Portal
+        # The following values must be replaced with the values shown on the
+        # Account -> Your Account page in the Portal.
         QueueFairConfig.ACCOUNT = "YOUR_ACCOUNT_SYSTEM_NAME"
         QueueFairConfig.ACCOUNT_SECRET = "YOUR_ACCOUNT_SECRET"
 
